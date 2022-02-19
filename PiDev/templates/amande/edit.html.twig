@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Amande{% endblock %}
+
+{% block body %}
+    <h1>Edit Amande</h1>
+
+    {{ include('amande/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('amande_index') }}">back to list</a>
+
+    {{ include('amande/_delete_form.html.twig') }}
+{% endblock %}
