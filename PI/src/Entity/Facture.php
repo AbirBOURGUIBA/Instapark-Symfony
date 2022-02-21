@@ -36,7 +36,7 @@ class Facture
     private $total;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $dateentrer;
 
@@ -86,7 +86,7 @@ class Facture
         return $this->dateentrer;
     }
 
-    public function setDateentrer(\DateTimeInterface $dateentrer): self
+    public function setDateentrer(string $dateentrer): self
     {
         $this->dateentrer = $dateentrer;
 

@@ -20,39 +20,46 @@ class Client
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Saisir le nom ")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Saisir le prénom ")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=8)
-
+     * @Assert\NotBlank(message="Saisir le numéro de télephone ")
+     * @Assert\Range(
+     *      min = 8)
      */
     private $numtel;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Saisir l'immatricule ")
      */
     private $voitmat;
 
     /**
      * @ORM\Column(type="float")
-
+     * @Assert\NotBlank(message="Saisir la valeur de l'instamonaie de client")
      */
     private $instamon;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 ,unique=true)
+     * @Assert\NotBlank(message="Saisir le login ")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Assert\NotBlank(message="Saisir le password")
      */
     private $password;
 

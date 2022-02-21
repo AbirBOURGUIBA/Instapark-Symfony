@@ -9,6 +9,8 @@
 
             {{ form_widget(form.plongitude, {'attr': {'placeholder': 'Entrer la longitude de parking'}}) }}
 
+<div class="text-center">
+<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+</div>
 
-<button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

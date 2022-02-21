@@ -1,27 +1,33 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-
-            {{ form_widget(form.nom, {'attr': {'placeholder': 'Entrer le nombre de places de client'}}) }}
-
-            {{ form_widget(form.prenom, {'attr': {'placeholder': 'Entrer le prénom de client'}}) }}
-
-           {{ form_widget(form.numtel, {'attr': {'placeholder': 'Enter le numéro de télephone'}}) }}
-
-            {{ form_widget(form.voitmat, {'attr': {'placeholder': 'Entrer l"immatricule'}}) }}
-
-            {{ form_widget(form.instamon, {'attr': {'placeholder': 'Entrer le code instamonaie'}}) }}
-
-            {{ form_widget(form.login, {'attr': {'placeholder': 'Entrer le login'}}) }}
-
-            {{ form_widget(form.password, {'attr': {'placeholder': 'Entrer le mot de passe'}}) }}
-
-            {{ form_widget(form.status, {'attr': {'placeholder': 'Entrer le statut de voiture'}}) }}
-
+<tr ><td>Nom</td><td>{{ form_widget(form.nom) }}</td>
+    <td class="text-danger">{{ form_errors(form.nom) }} </td>
+</tr>
+<tr><td>Prénom</td><td>{{ form_widget(form.prenom) }}</td>
+    <td class="text-danger">{{ form_errors(form.prenom) }} </td>
+</tr>
+<tr><td>N°Télephone</td><td>{{ form_widget(form.numtel) }}</td>
+    <td class="text-danger">{{ form_errors(form.numtel) }} </td>
+</tr>
+<tr><td>Immatricule voiture</td><td>{{ form_widget(form.voitmat) }}</td>
+    <td class="text-danger">{{ form_errors(form.voitmat) }} </td>
+</tr>
+<tr><td>Valeur instamonnaie</td><td>{{ form_widget(form.instamon) }}</td>
+    <td class="text-danger">{{ form_errors(form.instamon) }} </td>
+</tr>
+<tr><td>Email</td><td>{{ form_widget(form.login) }}</td>
+    <td class="text-danger">{{ form_errors(form.login) }} </td>
+</tr>
+<tr><td>Mot De Passe</td><td>{{ form_widget(form.password) }}</td>
+    <td class="text-danger">{{ form_errors(form.password) }} </td>
+</tr>
+<tr><td>Status</td><td>{{ form_widget(form.status) }}</td>
+    <td class="text-danger">{{ form_errors(form.status) }} </td>
+</tr>
+</table>
 <br>
 <div class="text-center">
-    <button class="btn">{{ button_label|default('Save') }}</button>
-
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
 </div>
 
-
 {{ form_end(form) }}
+
