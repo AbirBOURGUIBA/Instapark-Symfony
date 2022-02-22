@@ -1,0 +1,60 @@
+{% extends'baseBack.html.twig' %}
+{% block body %}
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Liste des parking</h5>
+                            <div class="table-responsive">
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Id Parking</th>
+                                        <th>Nom de parking</th>
+                                        <th>Nombre de place</th>
+                                        <th>Latitude de parking</th>
+                                        <th>Longitude de parking</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for parking in parkings %}
+                                        <tr>
+                                            <td>{{ parking.id }}</td>
+                                            <td>{{ parking.nomp }}</td>
+                                            <td>{{ parking.nbplace }}</td>
+                                            <td>{{ parking.platitude }}</td>
+                                            <td>{{ parking.plongitude }}</td>
+                                            <td>
+                                                <a href="{{ path('parking_show', {'id': parking.id}) }}">show</a>
+                                                <a href="{{ path('parking_edit', {'id': parking.id}) }}">edit</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="6">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+            <a href="{{ path('parking_new') }}" style="float: right;" >Créer un parking</a>
+
+        </div>
+    </div>
+</div>
+</div><!--End Row-->
+
+
+{% endblock %}
+
+
+
