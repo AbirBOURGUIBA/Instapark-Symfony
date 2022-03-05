@@ -1,0 +1,62 @@
+{% extends'baseBack.html.twig' %}
+{% block body %}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Liste des parking</h5>
+                        <div class="table-responsive">
+
+                            <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom parking</th>
+                <th>Nombre de places</th>
+                <th>Latitude </th>
+                <th>Longitude</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for parking in parkings %}
+            <tr>
+                <td>{{ parking.id }}</td>
+                <td>{{ parking.nomParking }}</td>
+                <td>{{ parking.nbrPlace }}</td>
+                <td>{{ parking.latitudeParking }}</td>
+                <td>{{ parking.longitudeParking }}</td>
+                <td>
+                    <a href="{{ path('app_parking_show', {'id': parking.id}) }}">show</a>
+                    <a href="{{ path('app_parking_edit', {'id': parking.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info">
+                    <a href="{{ path('app_parking_new') }}" style="float: right;" ><i class="fa fa-plus" aria-hidden="true"></i> Créer un parking</a>
+
+                </button>
+            </div>
+        </div>
+    </div>
+</div><!--End Row-->
+
+
+{% endblock %}
+
+
+

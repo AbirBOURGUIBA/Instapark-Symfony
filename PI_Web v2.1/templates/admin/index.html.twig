@@ -1,0 +1,72 @@
+{% extends 'baseBack.html.twig' %}
+{% block body %}
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Liste des Administrateurs</h5>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Id </th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Numéro Téléphone</th>
+                                        <th>Adresse Email</th>
+                                        <th>Mot de passe</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for admin in admins %}
+                                        <tr>
+                                            <td>{{ admin.id }}</td>
+                                            <td>{{ admin.nom }}</td>
+                                            <td>{{ admin.prenom }}</td>
+                                            <td>{{ admin.numtel }}</td>
+                                            <td>{{ admin.login }}</td>
+                                            <td>{{ admin.password }}</td>
+
+                                            <td>
+                                                <button type="button" class="btn btn-danger">
+                                                    <a href="{{ path('app_admin_show', {'id': admin.id}) }}" >
+                                                        <i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                </button>
+                                                <button type="button" class="btn btn-danger">
+                                                    <a href="{{ path('app_admin_edit', {'id': admin.id}) }}">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </a>
+                                                </button>
+
+
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="8">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <button type="button" class="btn btn-info">
+                        <a href="{{ path('app_admin_new') }}" style="float: right;" ><i class="fa fa-plus" aria-hidden="true"></i> Créer un admin</a>
+
+                    </button>  </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+

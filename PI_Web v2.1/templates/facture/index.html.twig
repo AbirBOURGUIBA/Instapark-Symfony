@@ -1,0 +1,61 @@
+{% extends'baseBack.html.twig' %}
+{% block body %}
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            <div class="row mt-3">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Liste des factures</h5>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre d'heure</th>
+                <th>Prix unitaire</th>
+                <th>Total</th>
+                <th>Date d'entrer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.id }}</td>
+                <td>{{ facture.nbrheure }}</td>
+                <td>{{ facture.prixunitaire }}</td>
+                <td>{{ facture.total }}</td>
+                <td>{{ facture.dateentrer ? facture.dateentrer|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_facture_show', {'id': facture.id}) }}">show</a>
+                    <a href="{{ path('app_facture_edit', {'id': facture.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <a href="{{ path('app_facture_new') }}" style="float: right;">Créer Nouvelle facture</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
